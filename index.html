@@ -237,20 +237,19 @@
         analizar.onclick=()=>{
             let matriz=[],fila=[],patron;
 
-            for(i=0; i<10; i++){
-                for(j=0; j<10; j++){
+            for(let i=0; i<10; i++){
+                for(let j=0; j<10; j++){
                     if(document.getElementById("g"+i+j).style.background=="red")
                         fila.push(1);
                     else if(document.getElementById("g"+i+j).style.background=="white")
                         fila.push(0);
                 }
 
-                matriz.push(fila);
+                matriz.push([fila]);
+                
+                //Reiniciamos
+                //fila=[];
             }
-
-            patron=fila;
-
-            console.log(fila);
 
             //Analizis en si
             let filas_entrada = 10;
@@ -385,15 +384,7 @@
             let sumatoria_salida = new Array(neuronas_salida)
             let sigmoidal_salida = new Array(neuronas_salida)   
 
-            //1. procesamiento de la capa de entrada
-            //1.1 linealizar el patron de entrada
-            for (let i = 0; i < filas_entrada; i++) {
-                for (j = 0; j < col_entrada; j++) {
-                    
-                    entrada[i * col_entrada + j] = matriz[i][j];
-                }
-            }
-
+            entrada=fila;
             //1.2 sumar la entrada con el bias y calcular sigmidal
             for (let i = 0; i < neuronas_entrada; i++) {
                 sumatoria_entrada[i] = entrada[i] + bias_entrada[i];
@@ -416,14 +407,14 @@
 
             //3. procesamiento de la capa salida
             //3.1 suamtoria de productos de salida x peso
-            for (j = 0; j < neuronas_salida; j++) {
+            for (let j = 0; j < neuronas_salida; j++) {
                 salida[j] = 0;
                 for (i = 0; i < neuronas_oculta; i++) {
                     salida[j] += sigmoidal_oculta[i] * pesos_oculta_salida[i][j];
                 }
             }
             //3.2 sumatoria mas bias y calculo de sigmoidal
-            for (i = 0; i < neuronas_salida; i++) {
+            for (let i = 0; i < neuronas_salida; i++) {
                 sumatoria_salida[i] = salida[i] + bias_salida[i];
                 sigmoidal_salida[i] = 1 / (1 + Math.exp(-1 * sumatoria_salida[i]));
                 console.log("Sigmoidal [" + i + "]- " + sigmoidal_salida[i]);
@@ -432,7 +423,7 @@
             // 4.construyendo la interface de salida
             let mayor = -0.999;
             let neurona_activada = -1;
-            for (i = 0; i < neuronas_salida; i++) {
+            for (let i = 0; i < neuronas_salida; i++) {
                 if (sigmoidal_salida[i] > mayor) {
                     
                     mayor = sigmoidal_salida[i];
