@@ -373,17 +373,17 @@
             let bias_oculta=[0.34834381563232314,0.43149927576436664,1.0784798928732906,0.02482010191696229,0.4980202963811251,-0.13530713621254528]
             let bias_salida=[-4.366508397653753,-0.9578062103483498,-3.404589380853253,-3.9389675918358473,-3.2877814767029014,-4.684275584196856,-2.7634141436118176,3.353860509987431,2.1075351246123883,-2.5702594729168213]
         
-            let entrada = []
-            let sumatoria_entrada = []
-            let sigmoidal_entrada = []
+            let entrada = new Array(neuronas_entrada)
+            let sumatoria_entrada = new Array(neuronas_entrada)
+            let sigmoidal_entrada = new Array(neuronas_entrada)
             
-            let oculta = []
-            let sumatoria_oculta = []
-            let sigmoidal_oculta = []
+            let oculta = new Array(neuronas_oculta)
+            let sumatoria_oculta = new Array(neuronas_oculta)
+            let sigmoidal_oculta = new Array(neuronas_oculta)
             
-            let salida = []
-            let sumatoria_salida = []
-            let sigmoidal_salida = []   
+            let salida = new Array(neuronas_salida)
+            let sumatoria_salida = new Array(neuronas_salida)
+            let sigmoidal_salida = new Array(neuronas_salida)   
 
             //1. procesamiento de la capa de entrada
             //1.1 linealizar el patron de entrada
@@ -443,15 +443,25 @@
             if (mayor > 0.80 ) { // heuristica para saber si el patron es coherente
                 switch (neurona_activada) {
                     case 0:
-                        salida_text.innerHTML="veo el A";break;
+                        salida_text.innerHTML="Reconosco: Cara 1";break;
                     case 1:
-                        salida_text.innerHTML="veo el B";break;
+                        salida_text.innerHTML="Reconosco: Cara 2";break;
                     case 2:
-                        salida_text.innerHTML="veo el C";break;
+                        salida_text.innerHTML="Reconosco: Cara 3";break;
                     case 3:
-                        salida_text.innerHTML="veo el Add";break;
+                        salida_text.innerHTML="Reconosco: Cara 4";break;
                     case 4:
-                        salida_text.innerHTML="veo el Ae3";break;
+                        salida_text.innerHTML="Reconosco: Cara 5";break;
+                    case 5:
+                        salida_text.innerHTML="Reconosco: Cara 6";break;
+                    case 6:
+                        salida_text.innerHTML="Reconosco: Cara 7";break;
+                    case 7:
+                        salida_text.innerHTML="Reconosco: Cara 8";break;
+                    case 8:
+                        salida_text.innerHTML="Reconosco: Cara 9";break;
+                    case 9:
+                        salida_text.innerHTML="Reconosco: Cara 10";break;
                             
                 }
             } else
