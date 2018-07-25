@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: 0;
+        }
+        
+        body{
+            font-family: "Montserrat";
+            background: white;
+        }
+
+        .app{
+            position: relative;
+            width: 70%;
+            left: 15%;
+            height: 50vh;
+            top: 100px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .entrada{
+            padding: 5px;
+            border-radius: 5px;
+            border: solid 1px #222;
+        }
+
+        #lienzo{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fila{
+            display: flex;
+        }
+
+        .celda{
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: solid 1px #222;
+        }
+
+        .control{
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /*Control BTNS*/
+        .btn-control{
+            border: solid 1px #222;
+            color: #222;
+            background: white;
+            border-radius: 5px;
+            outline: none;
+            padding: 5px 10px;
+            margin: 2px;
+        }
+
+        .salida{
+            margin-left: 10px;
+            background: black;
+            color: white;
+            width: 100px;
+            height: 100px;
+
+            border-radius: 50%;
+            padding: 10px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .salida p{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <main class="app">
+        <div class="entrada">
+            <div id="lienzo">
+                <div class="fila">
+                    <div class="celda" id="g00" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g01" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g02" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g03" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g04" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g05" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g06" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g07" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g08" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g09" style="background:white;" onclick="pintar(this)"></div>
+                </div>
+                <div class="fila">
+                    <div class="celda" id="g10" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g11" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g12" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g13" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g14" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g15" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g16" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g17" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g18" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g19" style="background:white;" onclick="pintar(this)"></div>
+                </div>
+                <div class="fila">
+                    <div class="celda" id="g20" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g21" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g22" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g23" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g24" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g25" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g26" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g27" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g28" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g29" style="background:white;" onclick="pintar(this)"></div>
+                </div>
+                <div class="fila">
+                    <div class="celda" id="g30" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g31" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g32" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g33" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g34" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g35" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g36" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g37" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g38" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g39" style="background:white;" onclick="pintar(this)"></div>
+                </div>
+                <div class="fila">
+                    <div class="celda" id="g40" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g41" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g42" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g43" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g44" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g45" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g46" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g47" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g48" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g49" style="background:white;" onclick="pintar(this)"></div>
+                </div>
+                <div class="fila">
+                    <div class="celda" id="g50" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g51" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g52" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g53" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g54" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g55" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g56" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g57" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g58" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g59" style="background:white;" onclick="pintar(this)"></div>
+                </div>
+                <div class="fila">
+                    <div class="celda" id="g60" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g61" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g62" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g63" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g64" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g65" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g66" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g67" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g68" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g69" style="background:white;" onclick="pintar(this)"></div>
+                </div>
+                <div class="fila">
+                    <div class="celda" id="g70" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g71" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g72" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g73" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g74" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g75" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g76" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g77" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g78" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g79" style="background:white;" onclick="pintar(this)"></div>
+                </div>
+                <div class="fila">
+                    <div class="celda" id="g80" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g81" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g82" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g83" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g84" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g85" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g86" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g87" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g88" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g89" style="background:white;" onclick="pintar(this)"></div>
+                </div>
+                <div class="fila">
+                    <div class="celda" id="g90" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g91" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g92" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g93" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g94" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g95" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g96" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g97" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g98" style="background:white;" onclick="pintar(this)"></div>
+                    <div class="celda" id="g99" style="background:white;" onclick="pintar(this)"></div>
+                </div>
+            </div>
+            <div class="control">
+                <button id="limpiar" class="btn-control">Clear</button>
+                <button id="analizar" class="btn-control">Analizar</button>
+            </div>
+        </div>
+        <div class="salida">
+            <p id="salida-text">Reconosco: "Batman"</p>
+        </div>
+    </main>
+    <script>
+        function pintar(celda){
+            if(celda.style.background=="white")
+                celda.style.background="red";
+            else
+                celda.style.background="white";
+        }
+        //Red Neuronal
+        let analizar=document.getElementById("analizar"),
+            limpiar=document.getElementById("limpiar"),
+            salida_text=document.getElementById("salida-text");
+
+        analizar.onclick=()=>{
+            let matriz=[],fila=[],patron;
+
+            for(i=0; i<10; i++){
+                for(j=0; j<10; j++){
+                    if(document.getElementById("g"+i+j).style.background=="red")
+                        fila.push(1);
+                    else if(document.getElementById("g"+i+j).style.background=="white")
+                        fila.push(0);
+                }
+
+                matriz.push(fila);
+            }
+
+            patron=fila;
+
+            console.log(fila);
+
+            //Analizis en si
+            let filas_entrada = 10;
+            let col_entrada = 10;
+            let neuronas_entrada = 100;
+            let neuronas_oculta = 6; //4 -Digitos
+            let neuronas_salida = 10; // 5 -Digitos 
+
+            let pesos_entrada_oculta=[
+                [-0.4498880209317873,-0.35544607588914334,0.5670317584435626,0.007499104582766199,-0.013208368504275559,-0.2681031099123996],
+                [0.02047112636839217,0.37984538678000496,0.5012652969988157,0.17073563635087693,0.6117027084473992,-0.21784993505614322],
+                [-0.5020062541100226,-0.3888019934583126,-0.3009682436216958,-0.9803317354083366,0.31030094680265774,0.5310183220968396],
+                [-0.17898699214954278,-0.09817887607652565,-0.11217720429083658,-1.1715981777029791,-0.11067233794552757,0.8402635372230987],
+                [-0.022072813989235263,-0.07069368033048139,0.6327812264149426,-1.1879359138735952,0.0021808397643372527,0.09572347601831482],
+                [0.013033434769519382,0.4061918666062442,0.35939054126192227,-0.17655517381747027,0.27582799504834815,0.1546502787945467],
+                [-0.015217322531707617,-0.11034306334451308,0.5216575211212036,-0.9584264931459722,0.1108764442430265,0.208165475708302],
+                [-0.1933627629040499,-0.36978541218364236,-0.27346683666304233,-0.8888138661048719,0.2866106537172956,0.737876374405144],
+                [-0.5091655681072432,-0.5344403295952102,-0.20145933509711608,-0.6343547533989838,-0.12761536612823346,0.4591550691415865],
+                [0.06359722702024381,0.09714132551966824,0.30182982973583516,-0.29840095146942686,0.12709138824379204,-0.09416653616006673],
+                [-0.20861730114578417,0.19231564887245794,-0.0243519393578091,0.2199919187673817,-0.08593409519844834,-0.6157747883481225],
+                [-0.499275888244901,-0.43977160955892847,-0.41990271668434576,-0.6526769347106486,-0.4549572676019069,0.08400546560777766],
+                [1.2014423511125616,1.9469427360769487,-1.7973272179333208,-1.2609153004540092,0.11195268985352232,1.1794652719390286],
+                [1.371285508298887,0.2586327261080677,-0.2911959990738269,1.480448958169492,-2.7348389590173543,0.7784707249597476],
+                [0.8383844100577789,1.916904978266793,-1.6880518539071034,-1.09076068920882,-0.08142790895661682,1.42110126176836],
+                [0.12870456834323665,0.05157564984579823,0.3581722065525698,-1.0424336893223545,0.3151132925584132,0.07055046924793086],
+                [1.1534160817265804,1.4476137961014806,-1.5798381398553945,-0.8544928850852388,-0.008738580533843793,1.5976532789561657],
+                [0.9978496965884155,-0.18962351391943466,-0.8645450551702585,1.4441489582200808,-2.8216217305972626,0.07984765689970269],
+                [0.8630360975674193,1.4797321879405316,-1.8928292442291434,-1.2891675932058941,-0.20374614189431997,1.1398199317342208],
+                [-0.18146199878028485,-0.09101158564888467,-0.42643471907245795,-0.539805929759625,0.0749360110255346,0.6656985098186877],
+                [0.11560201484683745,-0.14352612397907763,0.41086096458665244,0.03902796668442069,-0.10075383156607734,-0.7453787518161686],
+                [-0.7802912303589006,-0.4229182610742858,-0.45479348942608766,-0.422947245366934,-0.3379792057230126,0.13099591985605466],
+                [-1.614188475364226,-0.22219269892377838,3.0474419537683057,2.1661138385687626,-1.4654938167288654,-0.10486879138265567],
+                [-1.0536310075784565,1.2262200588283432,-0.033717196565473034,0.3964707119053272,4.095552848865229,-1.7398502511636251],
+                [0.4093454789145803,-1.0016235686893329,-0.11156389293445963,1.2260301338312511,-2.431771938764558,0.4128495398465314],
+                [-0.8545460206429515,-0.27480078429709615,-0.5655282168371808,-0.8697032329770922,-0.395246987733085,0.08216006342544913],
+                [-1.057822299973047,-2.0345155062028493,2.3909888194690483,1.3058344584429424,0.9621610835568187,0.025960748553104835],
+                [-1.2438232486967964,1.0219768251428765,-0.03563369462279884,0.545014628700263,4.087754346095546,-1.59285694751497],
+                [1.1530087722924096,-2.689507388937029,-0.3937939289380648,0.38864770958113726,-0.03827898082312023,0.3431316072579646],
+                [-0.41439249195496736,-0.34375341460902964,-0.21662492524594065,-0.7538271841592246,-0.04267355112177764,0.9116281117710742],
+                [-0.08969735842195653,0.23866829389457203,0.604424733146171,0.25295352216662215,0.3077310779910393,-0.5186637854543048],
+                [-0.8627349977685584,-0.04396573633368549,-0.5344887439897859,0.3942383732024408,0.08437063983835445,0.3436072666659854],
+                [-0.46059099366689216,-0.18200209617136465,-0.2850830297932113,-0.906158458360379,0.027931160672943822,0.45333016857031955],
+                [-0.7473176079201835,-2.256407768842614,-0.5924802304203622,0.5641529737982044,0.4770746143308061,-0.04955856673802288],
+                [-0.4571097272150264,-0.37313528439073484,-0.3747178602151933,-0.5474154314813393,-0.14496626685791228,0.5442990603195],
+                [-0.49515719904943567,-0.07350942347670762,-0.5112593266158074,0.06801056769002825,0.0431114143681186,-0.16727992006829412],
+                [-0.4800550173680931,-0.10841922072497648,-0.1729677003451843,-0.8680463531422181,0.14428414909259246,0.649904392468572],
+                [-0.9897382005903518,-0.27746706731685755,0.622572745790115,0.9133524750898802,-1.9065213455913266,0.06581829297182132],
+                [-0.7014441715501253,-0.4765162171145603,-0.6188762328119066,-0.6595331323008916,-0.12997699588173425,0.17457244451204468],
+                [-0.16999026307023196,0.299496764807207,-0.19279180360749837,-0.08986841681745043,0.11265988818571222,0.5787112576949038],
+                [-0.006017509535528198,0.12056019226635648,0.35633166106205916,0.12903364299154718,-0.33194687459579764,-0.40533501057896437],
+                [-0.6930616268612432,-0.10821451572841642,-0.2266791620342177,-0.07958241052458183,0.4282445842920412,0.27296798542173656],
+                [0.2863600853990833,-1.3625723056657018,-1.0148730846725211,-0.5812974728651202,2.6360145780478557,0.47966765657118204],
+                [-0.0925893351854534,0.33903145086329906,-0.10979609088063438,-0.16950898894366684,0.49375026792317955,0.5048909894505619],
+                [-0.20027347758517242,0.08814633021107177,-0.8622955021544977,-0.14787134946729638,0.05286154425339728,-3.153197475764215E-4],
+                [-0.19766332456179078,0.15860831437616987,-0.2660671324254579,0.1691671576978124,0.5168082537736027,0.5498121632841462],
+                [-0.11190849382435386,-0.1350518053677526,-0.12663476708419436,0.07938803209010024,0.2113502389157514,0.6925484398517308],
+                [-0.43463181760705366,-0.01839571251617931,-0.3591691041995834,0.2084742841050585,0.1908378669333322,0.2847827847866938],
+                [-0.4761114813482491,-0.1711646039417032,-0.17674486148934718,-0.10148580065070326,0.14989528940687893,0.0960623934786234],
+                [-0.11846025670392965,0.11154241013929915,-0.06895316099505631,0.18818079699557222,0.3642750631359157,0.6782237054314207],
+                [-0.17443805367987408,-0.01692734663021867,0.2665812343032345,0.3147350488085559,-0.21476395004460924,-0.08974332165600334],
+                [-0.342246276612738,-0.01876634190603051,0.5694914951350057,0.22392685606483223,0.09460208083195136,-0.3966461085836087],
+                [-0.5865306619349925,-0.05083571488417064,-0.5717416043954849,0.048175079343059084,-0.06968187552450668,0.0019257841543518326],
+                [-0.8130726695321077,0.32695368177390066,-1.4882041591293618,0.7557951466651937,0.3035776062237581,-0.9657764775733492],
+                [-0.7374055194512353,-0.8777402519323194,0.8566683498868858,1.1276494428204866,-1.6044632519254172,0.890897337057608],
+                [-0.6140046627518195,-0.4808052893683861,0.8833876355301717,1.3375793565794243,-1.6236225368846176,1.0233414123330455],
+                [-0.7526991429860905,-0.5362039811650743,1.1229766787571833,1.050367156830376,-1.624249095019354,1.1933877881193267],
+                [-0.5296186276206898,0.33215246292240513,-1.0843660991949953,0.915920494985355,0.2081778875359239,-0.6678678492543273],
+                [-0.31453436714643324,0.020896742066530475,-0.3590954296210986,0.06425373496338245,0.19736696750163232,-0.2364294955224124],
+                [0.29770901399284583,0.19804858619844765,0.647295292505336,-0.16211751450518902,0.3343280349687382,0.19619821808716184],
+                [-0.06856264316833345,-0.0623976918792579,0.09324190867904275,0.36961512646508493,0.31492231706464835,-0.27170094768242725],
+                [0.006905297399462011,-0.0363708339168555,0.4173855444821813,0.28210446274329876,0.11788357500491761,-0.4946027650118038],
+                [1.355442236285458,0.517427595181578,-0.9452843491844092,0.4893797474077935,-0.24336085296376658,-2.1594943622706855],
+                [-0.19417529686458188,-0.19997337856180697,0.9542441108594582,1.0905254395003336,-2.2102618359459587,2.3807102573799206],
+                [-0.017277046096048736,0.47638858576904874,-0.6495545401661635,-0.2552245956057556,-0.377162079480696,1.4728727080136061],
+                [-0.28118733570662674,-0.05098780564406108,-0.23748249475482608,-0.0071958829826085586,0.33554795104048146,0.7199352631291138],
+                [-0.5556715763041371,0.11989039849547893,-0.36551507633492464,-0.11080832413216322,0.5633069530031606,0.5466502023714387],
+                [-1.121245088303166,-0.753724172598213,0.9267043338049342,1.0297305190718349,-1.76174634782199,0.8421331338780345],
+                [1.370934181778045,0.522945748158334,-1.4047318033352751,0.2740381489038679,-1.4753194142313057,-1.2015627082938398],
+                [0.19989415108788317,0.3528751535673072,0.31047212747843145,-0.148856871519597,0.38180071335238525,-0.1193401344632612],
+                [-0.1292599066687683,-0.38339478135094224,0.3245285006708963,0.2940352215645535,0.006042405739312268,-0.4508940358660957],
+                [-0.04914852403703865,-0.4053350993120945,0.03970111721712951,0.3582945509914734,-0.026404917882375697,-0.691125866474354],
+                [1.7391972157292637,0.7810505304588652,-1.231659884943377,0.13256798309676754,-1.022435508479506,-0.6249755530216613],
+                [-1.1933861573446083,-2.03123876692547,3.1014038641243635,0.3322280865146522,0.5159025476416058,-0.28509918687685953],
+                [-1.4414341459134776,2.154315352791819,1.1053273543744926,0.18644347416720675,1.5486478592733532,-0.4149045853732781],
+                [-1.5243030898601464,2.9668285875001597,0.49838926418964985,0.7179157986156862,0.5824570941773086,-0.6382892528547651],
+                [-1.0445746754729104,2.0686270194877467,1.4945293927114303,-0.06458593715548519,1.4991948809014188,-0.13690817218873466],
+                [1.0900351200085836,-3.311394439656187,-0.0014061590429497836,-0.5155600852177723,-0.5046396339729217,0.17694649124758347],
+                [1.3255198555419256,0.4276236054448062,-0.8219348202937067,0.5106498578956796,-1.3251312467756082,-0.9340940113953835],
+                [0.3517463751356228,0.14119400809031885,0.4814739793356455,-0.10046144488788362,0.38557604547890795,0.030124708369140756],
+                [0.1704190978441972,0.44152419891681655,0.6165070427098609,-0.05870707458699217,0.270829136786715,0.042896902780130385],
+                [-0.26415709379647934,0.14576511747373558,0.32306352419919593,-0.08027837365170128,0.15843127712570437,-0.4211947007057091],
+                [0.2856524851164703,1.2982335795717963,-0.18241600925994936,0.5435870752676215,-0.5990260303449769,0.034133331621064245],
+                [2.871835745905018,1.0967378237545606,-1.5005569810991954,-2.196875012999191,0.14870246387549305,-0.2190689754033091],
+                [1.6799949654250648,-2.7075856537726257,0.45973155605937766,0.1717042635920327,0.36731293849251195,3.046929059618079E-4],
+                [1.6252860419634865,-1.7610667147802153,-0.918420550755871,0.7784861473317642,0.29727671183934307,-0.17608028328415998],
+                [2.1147832522109047,-2.3833208388353087,0.5269675129672252,0.3235270750062377,-0.47462551884733956,1.5271246248793313],
+                [2.5143370981647455,1.0056363112018776,-1.8246292124275325,-2.1797046341894335,-1.2521213532074313,0.49107304000891205],
+                [-0.15339368368271328,0.9226639273473775,-0.259098075574762,0.6272699230758957,0.22564692913243928,-1.1427631500348667],
+                [0.3636003062555527,0.3050909667983035,0.5377339814095853,0.26088263933942046,0.2936454827739396,0.17413751561445032],
+                [0.2226364340124608,0.198594476860845,0.7626059199210186,0.21737914310108628,0.5260020338597944,-0.19549902889435292],
+                [0.22756118249112672,0.40809519863688537,0.4953603775762099,0.014298615995721336,0.4171298043545781,0.08765247969481318],
+                [-0.307063186085228,-0.16047756491599596,0.3842998585053304,0.08756357844304385,0.14573467126434417,-0.48564710455198423],
+                [-0.18569167559689284,0.2724584424214812,-0.5082707131265122,0.8542354725337005,0.2495707416546196,-1.5930203926964925],
+                [1.0163205550735268,-0.23138135298974793,-1.0312971312078627,-0.1872304786867712,-0.890900486820618,-2.3589237757412134],
+                [0.8635096329208577,-1.104523951975637,-0.6605990595684831,-0.9141563849767211,-1.1853353770111332,-1.1241795264322245],
+                [1.0396521205176235,0.06235448835953628,-1.0577669016857951,-0.33536819700441844,-0.7620269954154666,-1.9916873615345843],
+                [0.15917118590994683,0.9786287258807033,-0.23871463692946857,0.4479600792990621,0.5388244280382568,-0.9591654809539492],
+                [0.36097325849141865,0.36322318724113833,0.24605980046134243,-0.1708607812446267,0.06926078091386792,-0.03205823335059321],
+                [0.09351199696676514,0.20259674941055938,0.2924041858802445,0.1599883920127387,0.3781831542065853,-0.26424911734994655]]
+
+            let pesos_oculta_salida=[
+                [-6.601066374636305,6.138259316463564,-1.3586849457479755,-1.6262010834301712,-0.6070084615339207,2.4288230814239906,-7.300497831786686,-0.3361279318745977,-6.5410162351967225,0.6593607655971583],
+                [2.5001436421402343,-5.174265247648059,6.1299005590163205,-5.188963297469646,-8.328647171302073,4.25071394092705,0.8496523659706187,-4.465366046486559,-2.045124938528255,4.6284519434918705],
+                [4.399712073058495,-2.839809921642411,-4.35771035415784,4.230856632892959,0.19888155374560526,-2.988793811943057,-3.3462257050768573,-2.290351213908963,-0.3055428739925149,-5.01819452888497],
+                [-1.311945210371854,-0.003221293009685094,-6.653089941122302,0.49758079498701907,-0.00448323193623933,-1.7103810267528077,0.4363143982060455,-7.136733531963077,2.43738059891657,1.2857408527792316],
+                [3.803167241506948,-5.4021770042980055,4.500360967242124,-6.552719373923019,7.459246798057277,-6.360225971412207,-0.43041384505748903,-1.0379830200259237,-4.1068784872104045,-0.615783904900228],
+                [-2.666310210006087,-4.150012081221939,-1.301571278276442,3.8876803917510836,-0.958681156363918,2.929561753896608,5.435832238712817,1.6500366572481946,-4.692462299174769,-7.494695946373611]]
+
+            let bias_entrada=[-0.2919910009822734,0.3526902028688141,-0.1596674365700973,-0.3466310464814216,-0.17203927157562207,-0.3019755969031405,-0.2850774182620503,-0.43395615776743407,-0.2597000428958896,-0.2848435680882618,0.048216743513620465,-0.45886264538608296,-0.4857183592122043,-0.5728673623516207,-0.4911122620065356,-0.19030764869854608,-0.46434543746340523,-0.6031068315171255,-0.5473399712319276,-0.33795159234111877,0.08648538385785046,-0.36035764889742616,-0.4374005346826981,-0.45029754175723846,-0.6326490468827385,-0.5423458351650742,-0.449284772731088,-0.4611032498291452,-0.573226874149853,-0.2517917374704023,0.3950701033515554,-0.47332896102352595,-0.42318506533646927,-0.6857364005623833,-0.25251995349288753,-0.15449311923111966,-0.16466693976348265,-0.5429516412887838,-0.48916647835197336,-0.26334984856225313,-0.16493212293938095,-0.13057333633729326,-0.4928786816276306,0.21301466158025134,-0.27324151360893234,-0.19464078648765137,0.041252066745831026,-0.18954121936906942,0.13243606151200807,-0.25468511343182726,-0.08732207956606584,-0.09275381073406438,-0.27110281445036044,-0.5341300358965091,-0.47441785356503924,-0.4724976205590986,-0.42008457637177177,-0.42073928732069976,-0.09626374030720579,0.03315277101851283,-0.02159711413400755,0.19062622235370294,-0.5172472374550154,-0.5243926821679935,-0.39866848003200506,-0.29115763973368514,-0.20368061819273295,-0.5541610913550178,-0.5469116722806135,-0.06802316078081444,-0.2909608702366362,-0.14063803194139293,-0.4695688851731542,-0.41968162834024575,-0.2413787433496057,-0.37584662986018125,-0.2439974382405898,-0.5896125426190594,-0.4584792817040312,0.25855969391196776,0.20739851372047227,0.13021011324354015,-0.19674684942372275,-0.43416937500531544,-0.5244834578303584,-0.6021013595157437,-0.5108589635675531,-0.5178817622798763,-0.3308624698816268,0.03646212210255918,-0.11814976786316017,0.07425073303583467,-0.10538550051287959,-0.41526061654596313,-0.5395722352834064,-0.5879229418656216,-0.49289706110945786,-0.2421143373386366,-0.06333355223602186,0.1385970382118331]
+            let bias_oculta=[0.34834381563232314,0.43149927576436664,1.0784798928732906,0.02482010191696229,0.4980202963811251,-0.13530713621254528]
+            let bias_salida=[-4.366508397653753,-0.9578062103483498,-3.404589380853253,-3.9389675918358473,-3.2877814767029014,-4.684275584196856,-2.7634141436118176,3.353860509987431,2.1075351246123883,-2.5702594729168213]
+        
+            let entrada = []
+            let sumatoria_entrada = []
+            let sigmoidal_entrada = []
+            
+            let oculta = []
+            let sumatoria_oculta = []
+            let sigmoidal_oculta = []
+            
+            let salida = []
+            let sumatoria_salida = []
+            let sigmoidal_salida = []   
+
+            //1. procesamiento de la capa de entrada
+            //1.1 linealizar el patron de entrada
+            for (let i = 0; i < filas_entrada; i++) {
+                for (j = 0; j < col_entrada; j++) {
+                    
+                    entrada[i * col_entrada + j] = matriz[i][j];
+                }
+            }
+
+            //1.2 sumar la entrada con el bias y calcular sigmidal
+            for (let i = 0; i < neuronas_entrada; i++) {
+                sumatoria_entrada[i] = entrada[i] + bias_entrada[i];
+                sigmoidal_entrada[i] = 1 / (1 + Math.exp(-1 * sumatoria_entrada[i]));
+            } 
+
+            //2. procesamiento de la capa oculta
+            // 2.1 sumatoria de productos de entrada por peso
+            for (let j = 0; j < neuronas_oculta; j++) {
+                oculta[j] = 0;
+                for (i = 0; i < neuronas_entrada; i++) {
+                    oculta[j] += sigmoidal_entrada[i] * pesos_entrada_oculta[i][j];
+                }
+            }
+            //2.2 sumatoria mas bias y calculo de sigmoidal
+            for (let i = 0; i < neuronas_oculta; i++) {
+                sumatoria_oculta[i] = oculta[i] + bias_oculta[i];
+                sigmoidal_oculta[i] = 1 / (1 + Math.exp(-1 * sumatoria_oculta[i]));
+            }            
+
+            //3. procesamiento de la capa salida
+            //3.1 suamtoria de productos de salida x peso
+            for (j = 0; j < neuronas_salida; j++) {
+                salida[j] = 0;
+                for (i = 0; i < neuronas_oculta; i++) {
+                    salida[j] += sigmoidal_oculta[i] * pesos_oculta_salida[i][j];
+                }
+            }
+            //3.2 sumatoria mas bias y calculo de sigmoidal
+            for (i = 0; i < neuronas_salida; i++) {
+                sumatoria_salida[i] = salida[i] + bias_salida[i];
+                sigmoidal_salida[i] = 1 / (1 + Math.exp(-1 * sumatoria_salida[i]));
+                console.log("Sigmoidal [" + i + "]- " + sigmoidal_salida[i]);
+            }
+
+            // 4.construyendo la interface de salida
+            let mayor = -0.999;
+            let neurona_activada = -1;
+            for (i = 0; i < neuronas_salida; i++) {
+                if (sigmoidal_salida[i] > mayor) {
+                    
+                    mayor = sigmoidal_salida[i];
+                    neurona_activada = i;
+                }
+            }        
+
+            if (mayor > 0.80 ) { // heuristica para saber si el patron es coherente
+                switch (neurona_activada) {
+                    case 0:
+                        salida_text.innerHTML="veo el A";break;
+                    case 1:
+                        salida_text.innerHTML="veo el B";break;
+                    case 2:
+                        salida_text.innerHTML="veo el C";break;
+                    case 3:
+                        salida_text.innerHTML="veo el Add";break;
+                    case 4:
+                        salida_text.innerHTML="veo el Ae3";break;
+                            
+                }
+            } else
+            { salida_text.innerHTML="No reconosco :(";}  
+              
+        }
+    </script>
+
+</body>
+</html>
