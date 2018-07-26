@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Emoticones - IA</title>
     <style>
         *{
             margin: 0;
@@ -14,7 +14,8 @@
         
         body{
             font-family: "Montserrat";
-            background: white;
+            background: linear-gradient(45deg,green,blue);
+            height: 100vh;
         }
 
         .app{
@@ -32,7 +33,7 @@
         .entrada{
             padding: 5px;
             border-radius: 5px;
-            border: solid 1px #222;
+            background: white;
         }
 
         #lienzo{
@@ -45,8 +46,8 @@
         }
 
         .celda{
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
             background: white;
             border: solid 1px #222;
         }
@@ -60,8 +61,8 @@
         /*Control BTNS*/
         .btn-control{
             border: solid 1px #222;
-            color: #222;
-            background: white;
+            color: #fff;
+            background: black;
             border-radius: 5px;
             outline: none;
             padding: 5px 10px;
@@ -69,7 +70,7 @@
         }
 
         .salida{
-            margin-left: 10px;
+            margin-left: 20px;
             background: black;
             color: white;
             width: 100px;
@@ -81,10 +82,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+            animation: neurona 1s alternate infinite;
+        }
+
+        @keyframes neurona{
+            from{
+                box-shadow: rgba(2, 231, 60, 0.8) 0px 0px 0px 0px;
+            }
+            to{
+                box-shadow: rgba(41, 240, 2, 0.8) 0px 0px 0px 10px;
+            }
         }
 
         .salida p{
             text-align: center;
+        }
+
+        .salida p span{
+            font-size: 1.5em;
         }
     </style>
 </head>
@@ -219,13 +235,13 @@
             </div>
         </div>
         <div class="salida">
-            <p id="salida-text">Reconosco: "Batman"</p>
+            <p id="salida-text">Esperando...</p>
         </div>
     </main>
     <script>
         function pintar(celda){
             if(celda.style.background=="white")
-                celda.style.background="red";
+                celda.style.background="blue";
             else
                 celda.style.background="white";
         }
@@ -234,25 +250,25 @@
             limpiar=document.getElementById("limpiar"),
             salida_text=document.getElementById("salida-text");
 
+        limpiar.onclick=()=>{
+            for(let i=0; i<10; i++){
+                for(let j=0; j<10; j++){
+                    document.getElementById("g"+i+j).style.background="white"
+                }
+            }           
+        }
+
         analizar.onclick=()=>{
             let /* matriz=[], */fila=[]/*, patron */;
 
             for(let i=0; i<10; i++){
                 for(let j=0; j<10; j++){
-                    if(document.getElementById("g"+i+j).style.background=="red")
+                    if(document.getElementById("g"+i+j).style.background=="blue")
                         fila.push(1);
                     else if(document.getElementById("g"+i+j).style.background=="white")
                         fila.push(0);
                 }
 
-<<<<<<< HEAD
-                matriz.push([fila]);
-                
-                //Reiniciamos
-                //fila=[];
-            }
-
-=======
                 /* matriz.push(fila); */
             }
 
@@ -260,7 +276,6 @@
 
             console.log(fila);
 
->>>>>>> origin/master
             //Analizis en si
             let filas_entrada = 10;
             let col_entrada = 10;
@@ -394,9 +409,6 @@
             let sumatoria_salida = new Array(neuronas_salida)
             let sigmoidal_salida = new Array(neuronas_salida)   
 
-<<<<<<< HEAD
-            entrada=fila;
-=======
             //1. procesamiento de la capa de entrada
             //1.1 linealizar el patron de entrada
             /* for (let i = 0; i < filas_entrada; i++) {
@@ -409,7 +421,6 @@
             /* console.log(matriz); */
             console.log(entrada);
 
->>>>>>> origin/master
             //1.2 sumar la entrada con el bias y calcular sigmidal
             for (let i = 0; i < neuronas_entrada; i++) {
                 sumatoria_entrada[i] = entrada[i] + bias_entrada[i];
@@ -481,7 +492,7 @@
                             
                 }
             } else
-            { salida_text.innerHTML="No Reconozco :(";}  
+            { salida_text.innerHTML="No Reconozco <span>😥</span>";}  
               
         }
     </script>
