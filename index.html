@@ -235,7 +235,7 @@
             salida_text=document.getElementById("salida-text");
 
         analizar.onclick=()=>{
-            let matriz=[],fila=[],patron;
+            let /* matriz=[], */fila=[]/*, patron */;
 
             for(i=0; i<10; i++){
                 for(j=0; j<10; j++){
@@ -245,10 +245,10 @@
                         fila.push(0);
                 }
 
-                matriz.push(fila);
+                /* matriz.push(fila); */
             }
 
-            patron=fila;
+            /* patron=fila; */
 
             console.log(fila);
 
@@ -387,12 +387,15 @@
 
             //1. procesamiento de la capa de entrada
             //1.1 linealizar el patron de entrada
-            for (let i = 0; i < filas_entrada; i++) {
+            /* for (let i = 0; i < filas_entrada; i++) {
                 for (j = 0; j < col_entrada; j++) {
                     
                     entrada[i * col_entrada + j] = matriz[i][j];
                 }
-            }
+            } */
+            entrada = fila;
+            /* console.log(matriz); */
+            console.log(entrada);
 
             //1.2 sumar la entrada con el bias y calcular sigmidal
             for (let i = 0; i < neuronas_entrada; i++) {
@@ -443,29 +446,29 @@
             if (mayor > 0.80 ) { // heuristica para saber si el patron es coherente
                 switch (neurona_activada) {
                     case 0:
-                        salida_text.innerHTML="Reconosco: Cara 1";break;
+                        salida_text.innerHTML="Reconozco: Cara 1";break;
                     case 1:
-                        salida_text.innerHTML="Reconosco: Cara 2";break;
+                        salida_text.innerHTML="Reconozco: Cara 2";break;
                     case 2:
-                        salida_text.innerHTML="Reconosco: Cara 3";break;
+                        salida_text.innerHTML="Reconozco: Cara 3";break;
                     case 3:
-                        salida_text.innerHTML="Reconosco: Cara 4";break;
+                        salida_text.innerHTML="Reconozco: Cara 4";break;
                     case 4:
-                        salida_text.innerHTML="Reconosco: Cara 5";break;
+                        salida_text.innerHTML="Reconozco: Cara 5";break;
                     case 5:
-                        salida_text.innerHTML="Reconosco: Cara 6";break;
+                        salida_text.innerHTML="Reconozco: Cara 6";break;
                     case 6:
-                        salida_text.innerHTML="Reconosco: Cara 7";break;
+                        salida_text.innerHTML="Reconozco: Cara 7";break;
                     case 7:
-                        salida_text.innerHTML="Reconosco: Cara 8";break;
+                        salida_text.innerHTML="Reconozco: Cara 8";break;
                     case 8:
-                        salida_text.innerHTML="Reconosco: Cara 9";break;
+                        salida_text.innerHTML="Reconozco: Cara 9";break;
                     case 9:
-                        salida_text.innerHTML="Reconosco: Cara 10";break;
+                        salida_text.innerHTML="Reconozco: Cara 10";break;
                             
                 }
             } else
-            { salida_text.innerHTML="No reconosco :(";}  
+            { salida_text.innerHTML="No Reconozco :(";}  
               
         }
     </script>
